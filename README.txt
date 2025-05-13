@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Venus Slider ===
 Contributors: (this should be a list of wordpress.org userid's)
 Donate link: https://authorurl.com/
 Tags: comments, spam

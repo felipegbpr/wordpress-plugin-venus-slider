@@ -30,39 +30,125 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
- */
-define( 'VENUS_SLIDER_VERSION', '1.0.0' );
+if ( ! class_exists( 'Venus_Slider' ) ) {
 
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-venus-slider-activator.php
- */
-function activate_venus_slider() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-venus-slider-activator.php';
-	Venus_Slider_Activator::activate();
+	final class VenusSlider {
+		private $plugin_name = 'venus-slider';
+		private $version = '1.0.0';
+
+		protected static $instance = null;
+
+		/**
+		 * Main Venus_Slider Instance
+		 * Ensures only one instance of Carousel_Slider is loaded or can be loaded.
+		 *
+		 *
+		 * @since 1.0.0
+		 * @return VenusSlider - Main instance
+		 */
+		public static function instance() {
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
+			}
+
+			return self::$instance;
+		}
+
+		/**
+		 * VenusSlider constructor.
+		 */
+		public function __construct() {
+			$this->define_constants();
+			$this->includes();
+
+			register_activation_hook( __FILE__, array( $this, 'activation' ) );
+			register_deactivation_hook( __FILE__, array( $this, 'deactivation' ) );
+
+			do_action( 'venus_slider_init' );
+		}
+
+		public function define_constants() {
+			define( 'VENUS_SLIDER_VERSION', $this->version );
+			define( 'VENUS_SLIDER_FILE', __FILE__ );
+			define( 'VENUS_SLIDER_PATH', dirname( VENUS_SLIDER_FILE ) );
+			define( 'VENUS_SLIDER_INCLUDES', VENUS_SLIDER_PATH . '/includes' );
+			define( 'VENUS_SLIDER_TEMPLATES', VENUS_SLIDER_PATH . '/templates' );
+			define( 'VENUS_SLIDER_WIDGETS', VENUS_SLIDER_PATH . '/widgets' );
+			define( 'VENUS_SLIDER_URL', plugins_url( '',  VENUS_SLIDER_FILE ) );
+			define( 'VENUS_SLIDER_ASSETS', VENUS_SLIDER_URL . '/assets' );
+		}
+
+		/**
+		 * Define constant if not already set.
+		 *
+		 * @param  string $name
+		 * @param  string|bool $value
+		 */
+		private function define( $name, $value ) {
+			if ( ! defined( $name ) ) {
+				define( $name, $value );
+			}
+		}
+
+		/**
+		 * Include admin and front facing files
+		 */
+		public function includes() {
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-i18n.php';
+			require_once VENUS_SLIDER_INCLUDES . '/functions-venus-slider.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-activator.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-product.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-scripts.php';
+			require_once VENUS_SLIDER_WIDGETS . '/widget-venus_slider.php';
+
+			if ( is_admin() ) {
+				$this->admin_includes();
+			}
+
+			if ( ! is_admin() ) {
+				$this->frontend_includes();
+			}
+		}
+
+		/**
+		 * Include admin files
+		 */
+		public function admin_includes() {
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-credit.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-vc-element.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-documentation.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-form.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-admin.php';
+		}
+
+		/**
+		 * Load front facing files
+		 */
+		public function frontend_includes() {
+			require_once VENUS_SLIDER_PATH . '/shortcodes/class-venus-slider-shortcode.php';
+			require_once VENUS_SLIDER_PATH . '/shortcodes/class-venus-slider-depracated-shortcode.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class/venus-slider-structured-data.php';
+		}
+
+		/**
+		 * To be run when the plugin is activated
+		 * @return void
+		 */
+		public function activation() {
+			do_action( 'venus_slider_activation' );
+			flush_rewrite_rules();
+		}
+
+		/**
+		 * To be run when the plugin is deactivated
+		 * @return void
+		 */
+		public function deactivation() {
+			do_action( 'venus_slider_deactivation' );
+			flush_rewrite_rules();
+		}
+	}
 }
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-venus-slider-deactivator.php
- */
-function deactivate_venus_slider() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-venus-slider-deactivator.php';
-	Venus_Slider_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_venus_slider' );
-register_deactivation_hook( __FILE__, 'deactivate_venus_slider' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-venus-slider.php';
 
 /**
  * Begins execution of the plugin.
@@ -70,13 +156,5 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-venus-slider.php';
  * Since everything within the plugin is registered via hooks,
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
- *
- * @since    1.0.0
  */
-function run_venus_slider() {
-
-	$plugin = new Venus_Slider();
-	$plugin->run();
-
-}
-run_venus_slider();
+VenusSlider::instance();
