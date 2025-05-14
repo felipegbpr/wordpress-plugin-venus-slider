@@ -23,6 +23,8 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             // $this->form        = new VenusSliderForm(); 
 
             add_action( 'init', array( $this, 'venus_slider_post_type' ) );
+            add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+
 
             add_filter( 'manage_edit-carousels_columns', array( $this, 'columns_head' ) );
             add_filter( 'manage_carousels_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
@@ -137,11 +139,26 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
                     echo ucwords( str_replace( '-', '', $slide_type ) );
                     
                     break;
-                    
+
                 default: 
                     break;    
             }
         }
+
+        /**
+         * Add venus slider meta box
+         */
+        public function add_meta_boxes() {
+            add_meta_box(
+                'venus-slider-meta-boxes',
+                __( 'Venus Slider', 'venus-slider' ),
+                array( $this, 'venus_slider_meta_boxes' ),
+                'carousels',
+                'normal',
+                'high'
+            );
+        }
+
 
     }
 
