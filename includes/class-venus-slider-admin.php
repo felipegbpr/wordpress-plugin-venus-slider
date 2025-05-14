@@ -23,6 +23,11 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             // $this->form        = new VenusSliderForm(); 
 
             add_action( 'init', array( $this, 'venus_slider_post_type' ) );
+
+            add_filter( 'manage_edit-carousels_columns', array( $this, 'columns_head' ) );
+
+            // Remove view and quick edit from carousels 
+            add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
         } 
 
         /**
@@ -86,6 +91,21 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             unset( $actions['inline hide-if-no-js'] );
 
             return $actions;
+        }
+
+        /**
+         * Customize Venus Slider list table head
+         */
+        public function columns_head() {
+
+            $columns = array(
+                'cb'  => '<input type="checkbox"',
+                'title'  => __( 'Venus Slider Title', 'venus-slider' ),
+                'usage'  => __( 'Shortcode', 'venus-slider' ),
+                'slider_type'  => __( 'Slide Type', 'venus-slider' ),
+            );
+
+            return $columns;
         }
 
     }
