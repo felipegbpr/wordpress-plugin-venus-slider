@@ -25,6 +25,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             add_action( 'init', array( $this, 'venus_slider_post_type' ) );
 
             add_filter( 'manage_edit-carousels_columns', array( $this, 'columns_head' ) );
+            add_filter( 'manage_carousels_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
 
             // Remove view and quick edit from carousels 
             add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
@@ -106,6 +107,40 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             );
 
             return $columns;
+        }
+
+        /**
+         * Generate venus slider list table content
+         * 
+         * @param $column
+         * @param $post_id
+         */
+        public function columns_content( $column, $post_id ) {
+            switch ( $column ) {
+
+                case 'usage':
+                    ?>
+                    <input 
+                        type="text"
+                        onmousedown="this.clicked = 1;"
+                        onfocus="if (!this.clicked) this.select(); else this.clicked = 2;"
+                        onclick="if (this.clicked == 2) this.select(); this.clicked = 0;"
+                        value="[venus_slide id='<?php echo $post_id; ?>']"
+                        style="background-color: #f1f1f1;font-family: monospace;min-width: 250px;padding: 5px 8px;"
+                    />
+                   <?php 
+
+                   break;
+                
+                case 'slider_type':
+                    $slide_type = get_post_meta( get_the_ID(), '_slide_type', true );   
+                    echo ucwords( str_replace( '-', '', $slide_type ) );
+                    
+                    break;
+                    
+                default: 
+                    break;    
+            }
         }
 
     }
