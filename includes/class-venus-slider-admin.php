@@ -66,7 +66,27 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
                 ); 
 
                 register_post_type('venus-slider', $args);
-        }       
+        }
+        
+        /**
+         * Hide view and quick edit from venus slider admin
+         * 
+         * @param $actions
+         * @param $post
+         * 
+         * @return mixed 
+         */
+        public function post_row_actions( $actions, $post ) {
+            global $current_screen;
+            if ( $current_screen->post_type != 'venus-slider' ) {
+                return $actions;
+            }
+
+            unset( $actions['view'] );
+            unset( $actions['inline hide-if-no-js'] );
+
+            return $actions;
+        }
 
     }
 
