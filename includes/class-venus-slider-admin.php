@@ -18,9 +18,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
         public function __construct() {
             $this->plugin_path = VENUS_SLIDER_PATH;
             $this->plugin_url  = VENUS_SLIDER_URL;
-            
-                                        // TO-DO
-            // $this->form        = new VenusSliderForm(); 
+            $this->form        = new VenusSliderForm(); 
 
             add_action( 'init', array( $this, 'venus_slider_post_type' ) );
             add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
@@ -150,8 +148,8 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
          */
         public function add_meta_boxes() {
             add_meta_box(
-                'venus-slider-meta-boxes',
-                __( 'Venus Slider', 'venus-slider' ),
+                "venus-slider-meta-boxes",
+                __( "Venus Slider", 'venus-slider' ),
                 array( $this, 'venus_slider_meta_boxes' ),
                 'carousels',
                 'normal',
