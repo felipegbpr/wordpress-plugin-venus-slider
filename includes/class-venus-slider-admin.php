@@ -34,6 +34,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
 
             // Add custom link to media gallery
             add_filter( "attachment_fields_to_edit", array( $this, "attachment_fields_to_edit" ), null, 2 );
+            add_filter( "attachment_fields_to_save", array( $this, "attachment_fields_to_save" ), null, 2 );
         } 
 
         /**
@@ -380,6 +381,25 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             );
             
             return $form_fields;
+        }
+
+        /**
+         * Save custom field value
+         * 
+         * @param array $post
+         * @param array $attachment
+         * 
+         * @return object|array
+         */
+        public function attachment_fields_to_save( $post, $attachment ) {
+            $slider_link_url = isset( $attachment[ 'venus_slider_link_url' ] ) ? $attachment['venus_slider_link_url'] : null;
+
+            if ( filter_var( $slider_link_url, FILTER_VALIDATE_URL ) ) {
+
+                update_post_meta( $post['ID'], '_venus_slider_link_url', esc_url_raw( $slider_link_url ) );
+            }
+
+            return $post;
         }
     }
 
