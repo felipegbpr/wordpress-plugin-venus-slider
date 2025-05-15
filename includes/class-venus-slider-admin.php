@@ -22,6 +22,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
 
             add_action( 'init', array( $this, 'venus_slider_post_type' ) );
             add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+            add_action( 'add_meta_boxes', array( $this, 'shortcode_usage_info' ) );
 
 
             add_filter( 'manage_edit-carousels_columns', array( $this, 'columns_head' ) );
@@ -178,7 +179,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             require_once VENUS_SLIDER_TEMPLATES . '/admin/images-url.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/post-carousel.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/product-carousel.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/video-carousel.php';
+            require_once VENUS_SLIDER_TEMPLATES . '/admin/mth';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/images-settings.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/general.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/navigation.php';
@@ -230,6 +231,76 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             <?php echo ob_get_clean();
         }
 
+        /**
+         * Save custom meta box
+         * 
+         * @method save_meta_box
+         * @param int $post_id The post ID
+         */
+        public function save_meta_box( $post_id ) {
+            if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+                return;
+            }
+
+            // Check if nonce is set.
+            if ( ! isset( $_POST['_venus_slider_nonce'], $_POST['venus_slider'] ) ) {
+                return;
+            }
+
+            // Check if nonce is valid.
+            if ( ! wp_verify_nonce( $_POST['_venus_slider_nonce'], 'venus_slider_nonce' ) ) {
+                return;
+            }
+
+            // Check if user has permissions to save data.
+            if ( ! current_user_can( 'edit_post', $post_id ) ) {
+                return;
+            }
+
+            foreach ( $_POST['venus_slider'] as $key => $val ) {
+                if ( is_array( $val ) ) {
+                    $val = implode( ',', $val );
+                }
+
+                if ( $key == '_margin_right' && $val == 0 ) {
+                    $val = 'zero';
+                }
+
+                update_post_meta( $post_id, $key, sanitize_text_field( $val ) );
+            }
+
+            if ( ! isset( $_POST['venus_slider']['_post_categories'] ) ) {
+                update_post_meta( $post_id, '_post_categories', '' );
+            }
+
+            if ( ! isset( $_POST['venus_slider']['_post_tags'] ) ) {
+                update_post_meta( $post_id, '_post_tags', '' );
+            }
+
+            if ( ! isset( $_POST['venus_slider']['_post_in'] ) ) {
+                update_post_meta( $post_id, '_post_in', '' );
+            }
+
+            if ( isset( $_POST['_images_urls'] ) ) {
+               $this->save_images_urls( $post_id );
+            }
+        }
+
+        /**
+         * Save venus slider gallery images
+         * 
+         * @return string
+         */
+        public function save_images() {}
+
+        /**
+         * Save images urls
+         * 
+         * @param integer $post_id
+         * 
+         * @return void
+         */
+        private function save_images_urls( $post_id ) {}
     }
 
 endif;    
