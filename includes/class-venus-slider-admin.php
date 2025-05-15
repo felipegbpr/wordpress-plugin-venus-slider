@@ -31,6 +31,9 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
 
             // Remove view and quick edit from carousels 
             add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
+
+            // Add custom link to media gallery
+            add_filter( "attachment_fields_to_edit", array( $this, "attachment_fields_to_edit" ), null, 2 );
         } 
 
         /**
@@ -358,6 +361,25 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             }
 
             update_post_meta( $post_id, '_images_urls', $urls );
+        }
+
+        /**
+         * Adding our custom fields to the $form_fields array
+         * 
+         * @param array $form_fields
+         * @param object $post
+         * 
+         * @return array
+         */
+        public function attachment_fields_to_edit( $form_fields, $post ) {
+            $form_fields["venus_slider_link_url"]["label"] = __( "Link to URL", "venus-slider" );
+            $form_fields["venus_slider_link_url"]["input"] = "textarea";
+            $form_fields["venus_slider_link_url"]["value"] = get_post_meta( $post->ID, "_venus_slider_link_url", true );
+            $form_fields["venus_slider_link_url"]["extra_rows"] = array(
+                'venusSliderInfo' => __( '"Link to URL" only works on Venus Slider for linking image to a custom url.', 'venus-slider' ),
+            );
+            
+            return $form_fields;
         }
     }
 
