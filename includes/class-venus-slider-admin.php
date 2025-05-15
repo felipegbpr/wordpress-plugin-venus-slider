@@ -186,6 +186,50 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             require_once VENUS_SLIDER_TEMPLATES . '/admin/responsive.php';
         }
 
+        /**
+         * Meta Box for shortcode information
+         */
+        public function shortcode_usage_info() {
+            add_meta_box(
+                "venus-slider-shortcode-info",
+                __( "Usage (Shortcode)", 'venus-slider' ),
+                array( $this, 'render_meta_box_shortcode_info' ),
+                'carousels',
+                'side',
+                'low'
+            );
+        }
+
+        /**
+         * Render shortcode meta box content
+         */
+        public function render_meta_box_shortcode_info() {
+            ob_start(); ?>
+
+            <p>
+                <strong><?php _e( 'Copy the following shortcode and paste in post or page where you want to show.', 'venus-slider' ); ?></strong>
+            </p>
+            <input 
+                type="text"
+                onmousedown="this.clicked = 1;"
+                onfocus="if(!this.clicked) this.select(); else this.clicked = 2;"
+                onclick="if (this.clicked == 2) this.select(); this.clicked = 0;"
+                value="[venus_slider id='<?php echo get_the_ID(); ?>']"
+                style="background-color: #f1f1f1; width: 100%; padding: 8px;"
+            />
+            <hr/>
+            <p>
+                <?php _e( 'If this plugin has helped you, consider supporting its development with a small donation. Every bit helps keep the updates coming and the coffee flowing!', 'venus-slider' ); ?>
+            </p>
+            <p style="text-align: center;">
+                <a target="_blank" href="#">
+                    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="PayPal Donate">
+                </a>
+            </p>
+
+            <?php echo ob_get_clean();
+        }
+
     }
 
 endif;    
