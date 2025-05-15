@@ -291,7 +291,40 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
          * 
          * @return string
          */
-        public function save_images() {}
+        public function save_images() {
+            // Check if not an autosave.
+            if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+                return;
+            }
+
+            // Check if required fields are set.
+            if ( ! isset($_POST['ids'], $_POST['post_id'], $_POST['nonce'] ) ) {
+                return;
+            }
+
+            // Check if nonce is valid.
+            if ( ! wp_verify_nonce( $_POST['nonce'], 'venus_slider_ajax' ) ) {
+                return;
+            }
+
+            // Check if user has permissions to save data.
+            if ( ! current_user_can( 'edit_post' ) ) {
+                return;
+            }
+
+            $ids = strip_tags( rtrim( $_POST['ids'], ',' ) );
+            update_post_meta( $_POST['post_id'], '_wpdh_image_ids', $ids );
+
+            $thumbs = explode( ',', $ids );
+            $thumbs_output = '';
+            foreach ( $thumbs as $thumb ) {
+               $thumbs_output .= '<li>' . wp_get_attachment_image( $thumb, array( 75, 75 ) ) . '</li>'; 
+            }
+
+            echo $thumbs_output;
+
+            die();
+        }
 
         /**
          * Save images urls
