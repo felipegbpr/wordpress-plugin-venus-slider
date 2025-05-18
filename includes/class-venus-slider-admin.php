@@ -20,7 +20,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             $this->plugin_url  = VENUS_SLIDER_URL;
             $this->form        = new VenusSliderForm(); 
 
-            add_action( 'init', array( $this, 'venus_slider_post_type' ) );
+            add_action( 'init', array( $this, 'carousel_post_type' ) );
             add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
             add_action( 'add_meta_boxes', array( $this, 'shortcode_usage_info' ) );
             add_action( 'save_post', array( $this, 'save_meta_box' ) );
@@ -40,7 +40,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
         /**
          * Venus Slider post type
          */
-        public function venus_slider_post_type() {
+        public function carousel_post_type() {
                 $labels = array(
                         'name'                   => _x( 'Slides', 'Post Type General Name', 'venus-slider' ),
                         'singular_name'          => _x( 'Slide', 'Post Type Singular Name', 'venus-slider' ),
@@ -77,7 +77,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
                         'capability_type'        => 'post',
                 ); 
 
-                register_post_type('venus-slider', $args);
+                register_post_type('carousels', $args);
         }
         
         /**
@@ -184,7 +184,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             require_once VENUS_SLIDER_TEMPLATES . '/admin/images-url.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/post-carousel.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/product-carousel.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/mth';
+            require_once VENUS_SLIDER_TEMPLATES . '/admin/video-carousel.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/images-settings.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/general.php';
             require_once VENUS_SLIDER_TEMPLATES . '/admin/navigation.php';
