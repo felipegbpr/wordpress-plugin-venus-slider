@@ -332,39 +332,6 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
         }
 
         /**
-         * Save images urls
-         * 
-         * @param integer $post_id
-         * 
-         * @return void
-         */
-        private function save_images_urls( $post_id ) {
-            if ( ! isset( $_POST['_images_urls'] ) ) {
-                return;
-            }
-
-            $url      = $_POST['_images_urls']['url'];
-            $title    = $_POST['_images_urls']['title'];
-            $caption  = $_POST['_images_urls']['caption'];
-            $alt      = $_POST['_images_urls']['alt'];
-            $link_url = $_POST['_images_urls']['link_url'];
-
-            $urls = array();
-
-            for ( $i = 0; $i < count( $url ); $i ++ ) {
-                $urls[] = array(
-                    'url'      => esc_url_raw( $url[ $i ] ),
-                    'title'    => sanitize_text_field( $title[ $i ] ),
-                    'caption'  => sanitize_text_field( $caption[ $i ] ),
-                    'alt'      => sanitize_text_field( $alt[ $i ] ),
-                    'link_url' => esc_url_raw( $link_url[ $i ] ),
-                );
-            }
-
-            update_post_meta( $post_id, '_images_urls', $urls );
-        }
-
-        /**
          * Adding our custom fields to the $form_fields array
          * 
          * @param array $form_fields
@@ -400,6 +367,39 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
             }
 
             return $post;
+        }
+
+        /**
+         * Save images urls
+         * 
+         * @param integer $post_id
+         * 
+         * @return void
+         */
+        private function save_images_urls( $post_id ) {
+            if ( ! isset( $_POST['_images_urls'] ) ) {
+                return;
+            }
+
+            $url      = $_POST['_images_urls']['url'];
+            $title    = $_POST['_images_urls']['title'];
+            $caption  = $_POST['_images_urls']['caption'];
+            $alt      = $_POST['_images_urls']['alt'];
+            $link_url = $_POST['_images_urls']['link_url'];
+
+            $urls = array();
+
+            for ( $i = 0; $i < count( $url ); $i ++ ) {
+                $urls[] = array(
+                    'url'      => esc_url_raw( $url[ $i ] ),
+                    'title'    => sanitize_text_field( $title[ $i ] ),
+                    'caption'  => sanitize_text_field( $caption[ $i ] ),
+                    'alt'      => sanitize_text_field( $alt[ $i ] ),
+                    'link_url' => esc_url_raw( $link_url[ $i ] ),
+                );
+            }
+
+            update_post_meta( $post_id, '_images_urls', $urls );
         }
     }
 

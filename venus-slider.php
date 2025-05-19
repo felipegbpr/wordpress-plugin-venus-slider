@@ -127,8 +127,7 @@ if ( ! class_exists( 'Venus_Slider' ) ) {
 		public function frontend_includes() {
 			require_once VENUS_SLIDER_PATH . '/shortcodes/class-venus-slider-shortcode.php';
 			require_once VENUS_SLIDER_PATH . '/shortcodes/class-venus-slider-depracated-shortcode.php';
-			// TO-DO
-			// require_once VENUS_SLIDER_INCLUDES . '/class/venus-slider-structured-data.php';
+			require_once VENUS_SLIDER_INCLUDES . '/class-venus-slider-structured-data.php';
 		}
 
 		/**
