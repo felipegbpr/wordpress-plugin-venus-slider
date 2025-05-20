@@ -90,7 +90,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
          */
         public function post_row_actions( $actions, $post ) {
             global $current_screen;
-            if ( $current_screen->post_type != 'venus-slider' ) {
+            if ( $current_screen->post_type != 'carousels' ) {
                 return $actions;
             }
 
