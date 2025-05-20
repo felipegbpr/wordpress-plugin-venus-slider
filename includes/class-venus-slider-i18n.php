@@ -63,3 +63,5 @@ if ( ! class_exists( 'Venus_Slider_i18n' ) ):
 	}
 
 endif;
+
+Venus_Slider_i18n::init();
