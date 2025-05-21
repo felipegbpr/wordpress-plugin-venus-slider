@@ -191,11 +191,7 @@ $_product_btn_text_color = get_post_meta( $id, '_product_btn_text_color', true )
 
 			// Show Rating
 			if ( $_product_rating == 'on' ) {
-				if ( version_compare( WC_VERSION, "3.0.0", ">=" ) ) {
-						echo wc_get_rating_html( $product->get_average_rating() );
-				} else {
-						echo $product->get_rating_html();
-				}
+					echo wc_get_rating_html( $product->get_average_rating() );
 			}
 
 			// Sale Product batch
