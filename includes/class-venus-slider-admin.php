@@ -167,30 +167,31 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
          * Load meta box content
          */
         public function venus_slider_meta_boxes() {
-            wp_nonce_field( 'venus_slider_nonce', '_venus_slider_nonce' );
+			wp_nonce_field( 'venus_slider_nonce', '_venus_slider_nonce' );
 
-            global $post;
-            $slide_type = get_post_meta( $post->ID, '_slide_type', true );
-            $slide_type = in_array( $slide_type, array(
-                'image-carousel',
-                'post-carousel',
-                'image-carousel-url',
-                'video-carousel',
-                'product-carousel',
-            ) ) ? $slide_type : 'image-carousel';
+			global $post;
+			$slide_type = get_post_meta( $post->ID, '_slide_type', true );
+			$slide_type = in_array( $slide_type, array(
+				'image-carousel',
+				'post-carousel',
+				'image-carousel-url',
+				'video-carousel',
+				'product-carousel'
+			) ) ? $slide_type : 'image-carousel';
 
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/types.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/images-media.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/images-url.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/post-carousel.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/product-carousel.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/video-carousel.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/images-settings.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/general.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/navigation.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/autoplay.php';
-            require_once VENUS_SLIDER_TEMPLATES . '/admin/responsive.php';
-        }
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/types.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/images-media.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/images-url.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/post-carousel.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/product-carousel.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/video-carousel.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/images-settings.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/general.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/navigation.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/autoplay.php';
+			require_once VENUS_SLIDER_TEMPLATES . '/admin/responsive.php';
+		}
+
 
         /**
          * Meta Box for shortcode information

@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Venus Slider
  * Plugin URI:        https://pluginurl.com
- * Description:       Create responsive slideshows and carousels with ease! Ideal for displaying images, videos, products, or testimonials with smooth transitions and customizable design. Fully compatible with mobile devices and builders like Elementor and Gutenberg.
+ * Description:       Create responsive slideshows and venuss with ease! Ideal for displaying images, videos, products, or testimonials with smooth transitions and customizable design. Fully compatible with mobile devices and builders like Elementor and Gutenberg.
  * Version:           1.0.0
  * Author:            Felipe Borges
  * Author URI:        https://authorurl.com/
@@ -40,7 +40,7 @@ if ( ! class_exists( 'Venus_Slider' ) ) {
 
 		/**
 		 * Main Venus_Slider Instance
-		 * Ensures only one instance of Carousel_Slider is loaded or can be loaded.
+		 * Ensures only one instance of VENUS_Slider is loaded or can be loaded.
 		 *
 		 *
 		 * @since 1.0.0
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Venus_Slider' ) ) {
 			define( 'VENUS_SLIDER_INCLUDES', VENUS_SLIDER_PATH . '/includes' );
 			define( 'VENUS_SLIDER_TEMPLATES', VENUS_SLIDER_PATH . '/templates' );
 			define( 'VENUS_SLIDER_WIDGETS', VENUS_SLIDER_PATH . '/widgets' );
-			define( 'VENUS_SLIDER_URL', plugins_url( '',  VENUS_SLIDER_FILE ) );
+			define( 'VENUS_SLIDER_URL', plugins_url( '', VENUS_SLIDER_FILE ) );
 			define( 'VENUS_SLIDER_ASSETS', VENUS_SLIDER_URL . '/assets' );
 		}
 

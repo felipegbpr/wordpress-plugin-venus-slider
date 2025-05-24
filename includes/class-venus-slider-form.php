@@ -185,7 +185,7 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
 
             $html = $this->field_before( $args ); 
             $html .= '<div class="venus_slider_images">';          
-            $html .= sprintf( '<a href="#" id="venus_slider_gallery_btn" class="venus_slider_gallery_btn">%s</a>' );          
+            $html .= sprintf( '<a href="#" id="venus_slider_gallery_btn" class="venus_slider_gallery_btn">%s</a>', $btn_text );          
             $html .= sprintf( '<ul class="venus_slider_gallery_list">%s</ul>', $output );
             $html .= '</div>';
             $html .= $this->field_after();
@@ -213,7 +213,7 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
             echo $html;
         }
 
-        public function images_sizes( array $args ) {
+        public function image_sizes( array $args ) {
             if ( ! isset( $args['id'], $args['name'] ) ) {
                 return;
             }
@@ -287,19 +287,19 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
 
         private function field_before( $args ) {
             $table = sprintf( '<div class="sp-input-group" id="field-%s">', $args['id'] );
-            $table .= sprintf( '<div class="sp-input-label">' );
-            $table .= sprintf( '<label for="%1$s">%2$s></label>', $args['id'], $args['name'] );
-            if ( ! empty( $args['desc'] ) ) {
-                $table .= sprintf( '<p class="sp-input-desc">%s</p>', $args['desc'] );
-            }
-            $table .= '</div>';
-            $table .= sprintf( '<div class="sp-input-field">' );
+			$table .= sprintf( '<div class="sp-input-label">' );
+			$table .= sprintf( '<label for="%1$s">%2$s</label>', $args['id'], $args['name'] );
+			if ( ! empty( $args['desc'] ) ) {
+				$table .= sprintf( '<p class="sp-input-desc">%s</p>', $args['desc'] );
+			}
+			$table .= '</div>';
+			$table .= sprintf( '<div class="sp-input-field">' );
 
-            return $table;
+			return $table;
         }
 
         private function field_after() {
-            return '<div></div>';
+            return '</div></div>';
         }
     }
  

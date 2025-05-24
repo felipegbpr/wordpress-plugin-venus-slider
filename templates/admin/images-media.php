@@ -7,7 +7,7 @@
     <div class="shapla-toggle-inner">
         <div class="shapla-toggle-content">
             <?php 
-            $this->form->images_galerry( array( 
+            $this->form->images_gallery( array( 
                 'id'   => '_wpdh_image_ids',
                 'name' => __( 'Carousel Images', 'venus-slider' ),
                 'desc' => __( 'Choose carousel images from media library.', 'venus-slider' ),
