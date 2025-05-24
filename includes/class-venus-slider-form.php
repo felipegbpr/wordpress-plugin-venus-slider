@@ -168,28 +168,41 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
 
         public function images_gallery( $args ) {
             if ( ! isset( $args['id'], $args['name'] ) ) {
-                return;
-            }
-            list( $name, $value ) = $this->field_common( $args );
+				return;
+			}
+			list( $name, $value ) = $this->field_common( $args );
 
-            $btn_text = $value ? 'Edit Gallery' : 'Add Gallery';
-            $value    = strip_tags( rtrim( $value, ',' ) );
-            $output   = '';
+			$btn_text = $value ? 'Edit Gallery' : 'Add Gallery';
+			$value    = strip_tags( rtrim( $value, ',' ) );
+			$output   = '';
+			global $post;
 
-            if ( $value ) {
-                $thumbs = explode( ',', $value );
-                foreach ( $thumbs as $thumb ) {
-                    $output .= '<li>' . wp_get_attachment_image( $thumb, array( 50, 50 ) ) . '</li>';
-                }
-            }
+			if ( $value ) {
+				$thumbs = explode( ',', $value );
+				foreach ( $thumbs as $thumb ) {
+					$output .= '<li>' . wp_get_attachment_image( $thumb, array( 50, 50 ) ) . '</li>';
+				}
+			}
 
-            $html = $this->field_before( $args ); 
-            $html .= '<div class="venus_slider_images">';          
-            $html .= sprintf( '<a href="#" id="venus_slider_gallery_btn" class="venus_slider_gallery_btn">%s</a>', $btn_text );          
-            $html .= sprintf( '<ul class="venus_slider_gallery_list">%s</ul>', $output );
-            $html .= '</div>';
-            $html .= $this->field_after();
-            echo $html;          
+			$html = $this->field_before( $args );
+			$html .= '<div class="venus_slider_images">';
+			$html .= sprintf( '<input type="hidden" value="%1$s" id="_venus_slider_images_ids" name="%2$s">', $value, $name );
+			$html .= sprintf(
+				'<a href="#" id="%1$s" class="button" data-id="%2$s" data-ids="%3$s" data-create="%5$s" data-edit="%6$s" data-save="%7$s" data-progress="%8$s" data-insert="%9$s">%4$s</a>',
+				'venus_slider_gallery_btn',
+				$post->ID,
+				$value,
+				$btn_text,
+				esc_html__( 'Create Gallery', 'venus-slider' ),
+				esc_html__( 'Edit Gallery', 'venus-slider' ),
+				esc_html__( 'Save Gallery', 'venus-slider' ),
+				esc_html__( 'Saving...', 'venus-slider' ),
+				esc_html__( 'Insert', 'venus-slider' )
+			);
+			$html .= sprintf( '<ul class="venus_slider_gallery_list">%s</ul>', $output );
+			$html .= '</div>';
+			$html .= $this->field_after();
+			echo $html;
         }
 
         public function images_url( array $args ) {

@@ -109,7 +109,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
                 'cb'  => '<input type="checkbox"',
                 'title'  => __( 'Venus Slider Title', 'venus-slider' ),
                 'usage'  => __( 'Shortcode', 'venus-slider' ),
-                'slider_type'  => __( 'Slide Type', 'venus-slider' ),
+                'slide_type'  => __( 'Slide Type', 'venus-slider' ),
             );
 
             return $columns;
@@ -138,9 +138,9 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ) :
 
                    break;
                 
-                case 'slider_type':
+                case 'slide_type':
                     $slide_type = get_post_meta( get_the_ID(), '_slide_type', true );   
-                    echo ucwords( str_replace( '-', '', $slide_type ) );
+                    echo ucwords( str_replace( '-', ' ', $slide_type ) );
                     
                     break;
 
