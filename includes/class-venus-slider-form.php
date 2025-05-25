@@ -167,7 +167,7 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
         }
 
         public function images_gallery( $args ) {
-            if ( ! isset( $args['id'], $args['name'] ) ) {
+			if ( ! isset( $args['id'], $args['name'] ) ) {
 				return;
 			}
 			list( $name, $value ) = $this->field_common( $args );
@@ -193,38 +193,38 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
 				$post->ID,
 				$value,
 				$btn_text,
-				esc_html__( 'Create Gallery', 'venus-slider' ),
-				esc_html__( 'Edit Gallery', 'venus-slider' ),
-				esc_html__( 'Save Gallery', 'venus-slider' ),
-				esc_html__( 'Saving...', 'venus-slider' ),
-				esc_html__( 'Insert', 'venus-slider' )
+				esc_html__( 'Create Gallery', 'venu-slider' ),
+				esc_html__( 'Edit Gallery', 'venu-slider' ),
+				esc_html__( 'Save Gallery', 'venu-slider' ),
+				esc_html__( 'Saving...', 'venu-slider' ),
+				esc_html__( 'Insert', 'venu-slider' )
 			);
 			$html .= sprintf( '<ul class="venus_slider_gallery_list">%s</ul>', $output );
 			$html .= '</div>';
 			$html .= $this->field_after();
 			echo $html;
-        }
+		}
 
         public function images_url( array $args ) {
-            if ( ! isset( $args['id'], $args['name'] ) ) {
-                return;
-            }
-            list( $name, $value ) = $this->field_common( $args );
+			if ( ! isset( $args['id'], $args['name'] ) ) {
+				return;
+			}
+			list( $name, $value ) = $this->field_common( $args );
 
-            $btn_text = $value ? __( 'Edit URLs', 'venus-slider' ) : __( 'Add URLs', 'venus-slider' );
+			$btn_text = $value ? __( 'Edit URLs', 'venu-slider' ) : __( 'Add URLs', 'venu-slider' );
 
-            $html = $this->field_before( $args );
-            $html .= sprintf( '<a id="_images_urls_btn" class="button button-primary" href="#">%s</a>', $btn_text );
-            $html .= '<ur class="venus_slider_url_images_list"';
-            if ( is_array( $value ) && count( $value ) > 0 ) {
-                foreach ( $value as $image ) {
-                    $html .= sprintf( '<li><img src="%s" alt="%s" width="75" height="75"></li>', $image['url'], $image['alt'] );
-                }
-            }
-            $html .= '</ul>';
-            $html .= $this->field_after();
-            echo $html;
-        }
+			$html = $this->field_before( $args );
+			$html .= sprintf( '<a id="_images_urls_btn" class="button" href="#">%s</a>', $btn_text );
+			$html .= '<ul class="venu_slider_url_images_list">';
+			if ( is_array( $value ) && count( $value ) > 0 ) {
+				foreach ( $value as $image ) {
+					$html .= sprintf( '<li><img src="%s" alt="%s" width="75" height="75"></li>', $image['url'], $image['alt'] );
+				}
+			}
+			$html .= '</ul>';
+			$html .= $this->field_after();
+			echo $html;
+		}
 
         public function image_sizes( array $args ) {
             if ( ! isset( $args['id'], $args['name'] ) ) {
