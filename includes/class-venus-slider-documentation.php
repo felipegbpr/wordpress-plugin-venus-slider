@@ -29,7 +29,7 @@ if ( ! class_exists( 'VenusSliderDocumentation' ) ) {
 
         public function admin_menu() {
             add_submenu_page(
-                'edit.php?post_type=carousels',
+                'edit.php?post_type=venus-carousels',
                 'Documentation',
                 'Documentation',
                 'manage_options',

@@ -35,7 +35,7 @@ if ( ! class_exists( 'VenusSliderCredit' ) ):
 
             $footer_text = sprintf( __( 'If you like %1$s Venus Slider %2$s please leave us a %3$s rating. A huge thanks in advance!', 'venus-slider' ), '<strong>', '</strong>', '<a href="https://wordpress.org/support/view/plugin-reviews/venus-slider?filter=5#postform" target="_blank" data-rated="Thanks :)">&starf;&starf;&starf;&starf;&starf;</a>' );
 
-            if ( $post_type == 'carousels' || $hook_suffix == 'carousels_page_venus-slider-documentation' ) {
+            if ( $post_type == 'venus-carousels' || $hook_suffix == 'carousels_page_venus-slider-documentation' ) {
                 return $footer_text;
             }
 

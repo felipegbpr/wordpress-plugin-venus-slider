@@ -68,7 +68,7 @@ if ( ! class_exists( 'VenusSliderScripts' ) ):
 
             if ( $hook == 'post-new.php' || $hook == 'post.php' ) {
 
-                if ( is_a( $post, 'WP_Post' ) && 'carousels' == $post->post_type ) {
+                if ( is_a( $post, 'WP_Post' ) && 'venus-carousels' == $post->post_type ) {
                     wp_enqueue_media();
                     wp_enqueue_style( 'wp-color-picker' );
                     wp_enqueue_style(
@@ -176,7 +176,7 @@ if ( ! class_exists( 'VenusSliderScripts' ) ):
          */
         public function gallery_url_template() {
             global $post_type;
-            if ( $post_type != 'carousels' ) {
+            if ( $post_type != 'venus-carousels' ) {
                 return;
             }
             ?>

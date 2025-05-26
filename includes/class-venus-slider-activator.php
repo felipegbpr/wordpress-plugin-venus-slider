@@ -65,7 +65,7 @@ if ( ! class_exists( 'Venus_Slider_Activator' ) ):
 		 */
 		public function update_meta() {
 			$carousels = get_posts( array(
-				'post_type'   => 'venus-slider',
+				'post_type'   => 'venus-carousels',
 				'post_status' => 'any', 
 			) );
 

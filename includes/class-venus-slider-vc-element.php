@@ -43,7 +43,7 @@ if ( ! class_exists( 'VenusSliderVisualComposerElement' ) ):
             vc_map( array(
                     "name"         => __( "Venus Slider", 'venus-slider' ),
                     "description"  => __( "Place Venus Slider", 'venus-slider' ),
-                    "base"         => "carousel_slide",
+                    "base"         => "venus_slide",
                     "controls"     => "full",
                     "icon"         => plugins_url( 'assets/img/icon-images.svg', dirname( __FILE__ ) ),
                     "category"     => __( 'Content', 'venus-slider' ),
@@ -68,7 +68,7 @@ if ( ! class_exists( 'VenusSliderVisualComposerElement' ) ):
          */
         private function carousels_list() {
             $carousels = get_posts( array( 
-                    'post_type'  => 'carousels',
+                    'post_type'  => 'venus-carousels',
                     'post_status'  => 'publish',
             ) );
 

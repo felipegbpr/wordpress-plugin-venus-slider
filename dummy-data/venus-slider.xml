@@ -25,10 +25,10 @@
 
 	<item>
 		<title>Image carousel example from URL</title>
-		<link>http://wordpress.dev/?carousels=image-carousel-from-url-example</link>
+		<link>http://wordpress.dev/?venus-carousels=image-carousel-from-url-example</link>
 		<pubDate>Thu, 12 Jan 2017 14:51:13 +0000</pubDate>
 		<dc:creator><![CDATA[sayful]]></dc:creator>
-		<guid isPermaLink="false">http://wordpress.dev/?post_type=carousels&#038;p=1717</guid>
+		<guid isPermaLink="false">http://wordpress.dev/?post_type=venus-carousels&#038;p=1717</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -41,7 +41,7 @@
 		<wp:status><![CDATA[publish]]></wp:status>
 		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type><![CDATA[carousels]]></wp:post_type>
+		<wp:post_type><![CDATA[venus-carousels]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 		<wp:postmeta>
@@ -203,10 +203,10 @@
 	</item>
 	<item>
 		<title>Post Carousel Example</title>
-		<link>http://wordpress.dev/?carousels=post-carousel-example</link>
+		<link>http://wordpress.dev/?venus-carousels=post-carousel-example</link>
 		<pubDate>Thu, 12 Jan 2017 15:00:08 +0000</pubDate>
 		<dc:creator><![CDATA[sayful]]></dc:creator>
-		<guid isPermaLink="false">http://wordpress.dev/?post_type=carousels&#038;p=1720</guid>
+		<guid isPermaLink="false">http://wordpress.dev/?post_type=venus-carousels&#038;p=1720</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -219,7 +219,7 @@
 		<wp:status><![CDATA[publish]]></wp:status>
 		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type><![CDATA[carousels]]></wp:post_type>
+		<wp:post_type><![CDATA[venus-carousels]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 		<wp:postmeta>
@@ -381,10 +381,10 @@
 	</item>
 	<item>
 		<title>Video Carousel Example</title>
-		<link>http://wordpress.dev/?carousels=video-carousel-example</link>
+		<link>http://wordpress.dev/?venus-carousels=video-carousel-example</link>
 		<pubDate>Thu, 12 Jan 2017 15:01:44 +0000</pubDate>
 		<dc:creator><![CDATA[sayful]]></dc:creator>
-		<guid isPermaLink="false">http://wordpress.dev/?post_type=carousels&#038;p=1721</guid>
+		<guid isPermaLink="false">http://wordpress.dev/?post_type=venus-carousels&#038;p=1721</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -397,7 +397,7 @@
 		<wp:status><![CDATA[publish]]></wp:status>
 		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type><![CDATA[carousels]]></wp:post_type>
+		<wp:post_type><![CDATA[venus-carousels]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 		<wp:postmeta>
@@ -559,10 +559,10 @@
 	</item>
 	<item>
 		<title>Image carousel from media gallery</title>
-		<link>http://wordpress.dev/?carousels=image-carousel-from-media-gallery</link>
+		<link>http://wordpress.dev/?venus-carousels=image-carousel-from-media-gallery</link>
 		<pubDate>Thu, 12 Jan 2017 15:03:10 +0000</pubDate>
 		<dc:creator><![CDATA[sayful]]></dc:creator>
-		<guid isPermaLink="false">http://wordpress.dev/?post_type=carousels&#038;p=1722</guid>
+		<guid isPermaLink="false">http://wordpress.dev/?post_type=venus-carousels&#038;p=1722</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -575,7 +575,7 @@
 		<wp:status><![CDATA[publish]]></wp:status>
 		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type><![CDATA[carousels]]></wp:post_type>
+		<wp:post_type><![CDATA[venus-carousels]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 		<wp:postmeta>
