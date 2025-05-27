@@ -12,7 +12,7 @@ $_nav_active_color         = get_post_meta( $id, '_nav_active_color', true );
 $_lazy_load_image          = get_post_meta( $id, '_lazy_load_image', true );
 $_show_attachment_title    = get_post_meta( $id, '_show_attachment_title', true );
 $_show_attachment_caption  = get_post_meta( $id, '_show_attachment_caption', true );
-$_image_urls               = get_post_meta( $id, '_image_urls', true );
+$_images_urls               = get_post_meta( $id, '_images_urls', true );
 ?>
 <style>
     #id-<?php echo $id; ?> .owl-dots .owl-dot span {
@@ -65,7 +65,7 @@ $_image_urls               = get_post_meta( $id, '_image_urls', true );
             $image  = sprintf( '<img src="%1$s" alt="%2$s" />', $imageInfo['url'], $imageInfo['alt'] );
         }
 
-        if ( filter_var( $imageInfo['liink_url'], FILTER_VALIDATE_URL ) ) {
+        if ( filter_var( $imageInfo['link_url'], FILTER_VALIDATE_URL ) ) {
 
             echo sprintf( '<a href="%1$s" target="%4$s">%2$s %3$s</a>', $imageInfo['link_url'], $image, $full_caption, $_image_target );
 
