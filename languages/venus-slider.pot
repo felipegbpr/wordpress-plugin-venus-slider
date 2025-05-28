@@ -1,0 +1,554 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Venus Slider 1.0.0\n"
+"POT-Creation-Date: 2025-05-28 10:19-0300\n"
+"PO-Revision-Date: 2025-05-31 12:48+0600\n"
+"Last-Translator: \n"
+"Language-Team: Felipe Borges "
+"felipetecacc@gmail.comLanguage: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-venus-slider-admin.php:45
+msgctxt "Post Type General Name"
+msgid "Slides"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:46
+msgctxt "Post Type Singular Name"
+msgid "Slide"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:47
+#: includes/class-venus-slider-admin.php:160
+#: includes/class-venus-slider-vc-element.php:44
+#: widgets/widget-venus_slider.php:17
+msgid "Venus Slider"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:48
+msgid "Parent Slide:"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:49
+msgid "All Slides"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:50
+msgid "View Slide"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:51
+msgid "Add New Slide"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:52
+msgid "Add New"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:53
+msgid "Edit Slide"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:54
+msgid "Update Slide"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:55
+msgid "Search Slide"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:56
+msgid "Not found"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:57
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:60
+msgid "Slide"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:61
+msgid "The easiest way to create carousel slide"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:112
+msgid "Venus Slide Title"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:113
+msgid "Shortcode"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:114
+msgid "Slide Type"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:203
+msgid "Usage (Shortcode)"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:217
+msgid ""
+"Copy the following shortcode and paste in post or "
+"page where you want to show."
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:229
+msgid ""
+"If you like this plugin or if you make money using "
+"this or if you want to help me to continue my "
+"contribution on open source projects, consider to "
+"make a small donation."
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:364
+msgid "Link to URL"
+msgstr ""
+
+#: includes/class-venus-slider-admin.php:368
+msgid ""
+"\"Link to URL\" only works on Carousel Slider for "
+"linking image to a custom url."
+msgstr ""
+
+#: includes/class-venus-slider-credit.php:36
+#, php-format
+msgid ""
+"If you like %1$s Venus Slider %2$s please leave us "
+"a %3$s rating. A huge thanks in advance!"
+msgstr ""
+
+#: includes/class-venus-slider-form.php:214
+msgid "Edit URLs"
+msgstr ""
+
+#: includes/class-venus-slider-form.php:214
+msgid "Add URLs"
+msgstr ""
+
+#: includes/class-venus-slider-form.php:277
+msgid "Browse"
+msgstr ""
+
+#: includes/class-venus-slider-product.php:43
+#: templates/product-carousel.php:199
+msgid "Sale!"
+msgstr ""
+
+#: includes/class-venus-slider-vc-element.php:45
+msgid "Place Venus Slider"
+msgstr ""
+
+#: includes/class-venus-slider-vc-element.php:49
+msgid "Content"
+msgstr ""
+
+#: includes/class-venus-slider-vc-element.php:57
+msgid "Choose Carousel Slide"
+msgstr ""
+
+#: templates/admin/autoplay.php:3
+msgid "Autoplay Settings"
+msgstr ""
+
+#: templates/admin/autoplay.php:10
+msgid "Autoplay"
+msgstr ""
+
+#: templates/admin/autoplay.php:11
+msgid "Autoplay."
+msgstr ""
+
+#: templates/admin/autoplay.php:12
+msgid "Check to enable autoplay"
+msgstr ""
+
+#: templates/admin/autoplay.php:17
+msgid "Autoplay Timeout"
+msgstr ""
+
+#: templates/admin/autoplay.php:18
+msgid ""
+"Autoplay interval timeout in millisecond. Default: "
+"5000"
+msgstr ""
+
+#: templates/admin/autoplay.php:23
+msgid "Autoplay Speed"
+msgstr ""
+
+#: templates/admin/autoplay.php:24
+msgid "Autoplay speen in millisecond. Default: 500"
+msgstr ""
+
+#: templates/admin/autoplay.php:29
+msgid "Autoplay Hover Pause"
+msgstr ""
+
+#: templates/admin/autoplay.php:30
+msgid "Pause on mouse hover."
+msgstr ""
+
+#: templates/admin/autoplay.php:31
+msgid "Pause autoplay on mouse hover."
+msgstr ""
+
+#: templates/admin/general.php:3
+msgid "General Settings"
+msgstr ""
+
+#: templates/admin/general.php:9
+msgid "_image_size"
+msgstr ""
+
+#: templates/admin/general.php:10
+msgid "Carousel Image size"
+msgstr ""
+
+#: templates/admin/general.php:11
+#, php-format
+msgid ""
+"Select \"original uploaded image\" for full size "
+"image or your desired image size for carousel "
+"image. You can change the default size for "
+"thumbnail, medium and large from %1$s Settings >> "
+"Media %2$s."
+msgstr ""
+
+#: templates/admin/general.php:15
+#: templates/admin/general.php:16
+msgid "Lazy load image"
+msgstr ""
+
+#: templates/admin/general.php:17
+msgid "Check to enable image lazy load."
+msgstr ""
+
+#: templates/admin/general.php:18
+msgid "off"
+msgstr ""
+
+#: templates/admin/general.php:22
+msgid "Slide By"
+msgstr ""
+
+#: templates/admin/general.php:23
+msgid ""
+"Navigation slide by x number. Write \"page\" with "
+"inverted comma to slide by page. Default value is "
+"1."
+msgstr ""
+
+#: templates/admin/general.php:28
+msgid "Margin Right(px) on item."
+msgstr ""
+
+#: templates/admin/general.php:29
+msgid ""
+"margin-right(px) on item. Default value is 10. "
+"Example: 20"
+msgstr ""
+
+#: templates/admin/general.php:34
+msgid "Infinity loop"
+msgstr ""
+
+#: templates/admin/general.php:35
+msgid "Infinity loop."
+msgstr ""
+
+#: templates/admin/general.php:36
+msgid ""
+"Check to show infinity loop. Duplicate last and "
+"first items to get loop illusion"
+msgstr ""
+
+#: templates/admin/navigation.php:3
+msgid "Navigation Settings"
+msgstr ""
+
+#: templates/admin/navigation.php:10
+#: templates/admin/navigation.php:11
+msgid "Navigation"
+msgstr ""
+
+#: templates/admin/navigation.php:12
+msgid "Check to show next/prev icons."
+msgstr ""
+
+#: templates/admin/navigation.php:16
+#: templates/admin/navigation.php:17
+msgid "Dots"
+msgstr ""
+
+#: templates/admin/navigation.php:18
+msgid "Check to show dots navigation."
+msgstr ""
+
+#: templates/admin/navigation.php:23
+msgid "Navigation & Dots Color "
+msgstr ""
+
+#: templates/admin/navigation.php:24
+msgid "Pick a color for navigation and dots."
+msgstr ""
+
+#: templates/admin/navigation.php:29
+msgid "Navigation & Dots Color: Hover & Active"
+msgstr ""
+
+#: templates/admin/navigation.php:30
+msgid ""
+"Pick a color for navigation and dots for active "
+"and hover effect."
+msgstr ""
+
+#: templates/admin/post-carousel.php:4
+msgid "Post Query"
+msgstr ""
+
+#: templates/admin/post-carousel.php:11
+msgid "Query Type"
+msgstr ""
+
+#: templates/admin/post-carousel.php:14
+msgid "Latest Posts"
+msgstr ""
+
+#: templates/admin/post-carousel.php:15
+msgid "Date Range"
+msgstr ""
+
+#: templates/admin/post-carousel.php:16
+#: templates/admin/post-carousel.php:35
+msgid "Post Categories"
+msgstr ""
+
+#: templates/admin/post-carousel.php:17
+#: templates/admin/post-carousel.php:42
+msgid "Post Tags"
+msgstr ""
+
+#: templates/admin/post-carousel.php:18
+#: templates/admin/post-carousel.php:48
+msgid "Specific posts"
+msgstr ""
+
+#: templates/admin/post-carousel.php:23
+msgid "Date from"
+msgstr ""
+
+#: templates/admin/post-carousel.php:24
+#: templates/admin/post-carousel.php:29
+#, php-format
+msgid "Example: %s"
+msgstr ""
+
+#: templates/admin/post-carousel.php:28
+msgid "Date to"
+msgstr ""
+
+#: templates/admin/post-carousel.php:36
+msgid ""
+"Show posts associated with selected categories."
+msgstr ""
+
+#: templates/admin/post-carousel.php:43
+msgid "Show posts associated with selected tags."
+msgstr ""
+
+#: templates/admin/post-carousel.php:49
+msgid ""
+"Select posts that you want to show as slider. "
+"Select at least 5 posts"
+msgstr ""
+
+#: templates/admin/post-carousel.php:53
+msgid "Posts per page"
+msgstr ""
+
+#: templates/admin/post-carousel.php:55
+msgid ""
+"How many post you want to show on carousel slide."
+msgstr ""
+
+#: templates/admin/post-carousel.php:59
+msgid "Order"
+msgstr ""
+
+#: templates/admin/post-carousel.php:62
+msgid "Ascending Order"
+msgstr ""
+
+#: templates/admin/post-carousel.php:63
+msgid "Descending Order"
+msgstr ""
+
+#: templates/admin/post-carousel.php:68
+msgid "Order by"
+msgstr ""
+
+#: templates/admin/post-carousel.php:71
+msgid "No order"
+msgstr ""
+
+#: templates/admin/post-carousel.php:72
+msgid "Post id"
+msgstr ""
+
+#: templates/admin/post-carousel.php:73
+msgid "Post author"
+msgstr ""
+
+#: templates/admin/post-carousel.php:74
+msgid "Post title"
+msgstr ""
+
+#: templates/admin/post-carousel.php:75
+msgid "Last modified date"
+msgstr ""
+
+#: templates/admin/post-carousel.php:76
+msgid "Random order"
+msgstr ""
+
+#: templates/admin/post-carousel.php:77
+msgid "Number of comments"
+msgstr ""
+
+#: templates/admin/post-carousel.php:82
+msgid "Columns Height"
+msgstr ""
+
+#: templates/admin/post-carousel.php:84
+msgid ""
+"Enter colums height for posts carousel in numbers. "
+"450 (px) is perfect when columns width is around "
+"300px or higher. Otherwise you need to change it "
+"for perfection."
+msgstr ""
+
+#: templates/admin/product-carousel.php:99
+msgid "YITH WooCommerce Wishlist"
+msgstr ""
+
+#: templates/admin/responsive.php:3
+msgid "Responsive Settings"
+msgstr ""
+
+#: templates/admin/responsive.php:11
+msgid "Columns"
+msgstr ""
+
+#: templates/admin/responsive.php:12
+msgid ""
+"The number of items you want to see on the Extra "
+"Large Desktop Layout (Screens size greater than "
+"1921 pixels DP)"
+msgstr ""
+
+#: templates/admin/responsive.php:18
+msgid "Columns : Desktop"
+msgstr ""
+
+#: templates/admin/responsive.php:19
+msgid ""
+"The number of items you want to see on the Desktop "
+"Layout (Screens size from 1200 pixels DP to 1920 "
+"pixels DP)"
+msgstr ""
+
+#: templates/admin/responsive.php:25
+msgid "Columns : Small Desktop"
+msgstr ""
+
+#: templates/admin/responsive.php:26
+msgid ""
+"The number of items you want to see on the Small "
+"Desktop Layout (Screens size from 993 pixels DP to "
+"1199 pixels DP)"
+msgstr ""
+
+#: templates/admin/responsive.php:31
+msgid "Columns : Tablet"
+msgstr ""
+
+#: templates/admin/responsive.php:32
+msgid ""
+"The number of items you want to see on the Tablet "
+"Layout (Screens size from 768 pixels DP to 992 "
+"pixels DP)"
+msgstr ""
+
+#: templates/admin/responsive.php:37
+msgid "Columns : Small Tablet"
+msgstr ""
+
+#: templates/admin/responsive.php:38
+msgid ""
+"The number of items you want to see on the Small "
+"Tablet Layout(Screens size from 600 pixels DP to "
+"767 pixels DP)"
+msgstr ""
+
+#: templates/admin/responsive.php:43
+msgid "Columns : Mobile"
+msgstr ""
+
+#: templates/admin/responsive.php:44
+msgid ""
+"The number of items you want to see on the Mobile "
+"Layout (Screens size from 320 pixels DP to 599 "
+"pixels DP)"
+msgstr ""
+
+#: templates/documentation.php:24
+msgid "Venus Slider Documentation"
+msgstr ""
+
+#: templates/product-carousel.php:9
+msgid "WooCommerce"
+msgstr ""
+
+#: templates/product-carousel.php:223
+msgid "Quick View"
+msgstr ""
+
+#: widgets/widget-venus_slider.php:15
+msgid ""
+"Easily display carousels of images, videos, and "
+"posts."
+msgstr ""
+
+#: widgets/widget-venus_slider.php:58
+msgid "Title (optional):"
+msgstr ""
+
+#: widgets/widget-venus_slider.php:61
+msgid "Choose Slide"
+msgstr ""
+
+#: widgets/widget-venus_slider.php:75
+msgid "You did not add any carousel slider yet."
+msgstr ""
+
+#: widgets/widget-venus_slider.php:76
+msgid "to create a new carousel slider now."
+msgstr ""
+
+#: widgets/widget-venus_slider.php:77
+msgid "click here"
+msgstr ""

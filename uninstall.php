@@ -2,30 +2,35 @@
 
 /**
  * Fired when the plugin is uninstalled.
- *
- * When populating this file, consider the following flow
- * of control:
- *
- * - This method should be static
- * - Check if the $_REQUEST content actually is the plugin name
- * - Run an admin referrer check to make sure it goes through authentication
- * - Verify the output of $_GET makes sense
- * - Repeat with other user roles. Best directly by using the links/query string parameters.
- * - Repeat things for multisite. Once for a single site in the network, once sitewide.
- *
- * This file may be updated more in future version of the Boilerplate; however, this is the
- * general skeleton and outline for how the file should work.
- *
- * For more information, see the following discussion:
- * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
- *
- * @link       https://authorurl.com
- * @since      1.0.0
- *
- * @package    Venus_Slider
+ * @since		1.0.0
  */
 
 // If uninstall not called from WordPress, then exit.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+/**
+ * Delete plugin data on uninstall
+ *
+ * @since 	1.0.0
+ */
+function venus_slider_delete_plugin_data() {
+	$_posts = get_posts( array(
+		'posts_per_page' => - 1,
+		'post_type'      => 'venus-carousels',
+		'post_status'    => 'any',
+	) );
+
+	foreach ( $_posts as $_post ) {
+		wp_delete_post( $_post->ID, true );
+	}
+
+	// Delete plugin options
+	if ( get_option( 'venus_slider_version' ) !== false ) {
+		delete_option( 'venus_slider_version' );
+	}
+}
+
+venus_slider_delete_plugin_data();
+
