@@ -221,7 +221,7 @@ if ( ! class_exists( 'VenusSliderAdmin' ) ):
                     onmousedown="this.clicked = 1;"
                     onfocus="if (!this.clicked) this.select(); else this.clicked = 2;"
                     onclick="if (this.clicked == 2) this.select(); this.clicked = 0;"
-                    value="[carousel_slide id='<?php echo get_the_ID(); ?>']"
+                    value="[venus_slide id='<?php echo get_the_ID(); ?>']"
                     style="background-color: #f1f1f1; width: 100%; padding: 8px;"
             >
             <hr>

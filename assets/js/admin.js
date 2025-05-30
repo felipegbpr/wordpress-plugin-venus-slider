@@ -171,7 +171,6 @@
     $('#venus_slider_form').sortable();
 
 })(jQuery);
-
 (function ($) {
     'use strict';
 
@@ -369,4 +368,3 @@
     });
 
 })(jQuery);
-
