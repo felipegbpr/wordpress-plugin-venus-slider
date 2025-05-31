@@ -141,21 +141,21 @@
         modal = $('#VenusSliderModal'),
         modalOpenBtn = $('#_images_urls_btn'),
         template = $('#venusSliderGalleryUrlTemplate').html();
-    
+
     // URL Images Model
     modalOpenBtn.on('click', function (e) {
         e.preventDefault();
         modal.css("display", "block");
         $("body").addClass("overflowHidden");
-    });  
-    modal.on('click', '.venus_slider-close', function(e) {
+    });
+    modal.on('click', '.venus_slider-close', function (e) {
         e.preventDefault();
-        modal.css("block", "none");
+        modal.css("display", "none");
         $("body").removeClass("overflowHidden");
     });
 
-    let venusSliderBodyHeight = $(window).height() - (38 + 48 + 32 + 30);
-    $('.venus_slider-modal-body').css('height', venusSliderBodyHeight + 'px');
+    let carouselSliderBodyHeight = $(window).height() - (38 + 48 + 32 + 30);
+    $('.venus_slider-modal-body').css('height', carouselSliderBodyHeight + 'px');
 
     // Append new row
     body.on('click', '.add_row', function () {
