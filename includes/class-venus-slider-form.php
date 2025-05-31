@@ -188,7 +188,7 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
 			$html .= '<div class="venus_slider_images">';
 			$html .= sprintf( '<input type="hidden" value="%1$s" id="_venus_slider_images_ids" name="%2$s">', $value, $name );
 			$html .= sprintf(
-				'<a href="#" id="%1$s" class="button" data-id="%2$s" data-ids="%3$s" data-create="%5$s" data-edit="%6$s" data-save="%7$s" data-progress="%8$s" data-insert="%9$s">%4$s</a>',
+				'<a href="#" id="%1$s" class="venus_slider_gallery_btn button" data-id="%2$s" data-ids="%3$s" data-create="%5$s" data-edit="%6$s" data-save="%7$s" data-progress="%8$s" data-insert="%9$s">%4$s</a>',
 				'venus_slider_gallery_btn',
 				$post->ID,
 				$value,
