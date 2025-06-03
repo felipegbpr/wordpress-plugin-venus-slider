@@ -154,8 +154,8 @@
         $("body").removeClass("overflowHidden");
     });
 
-    let carouselSliderBodyHeight = $(window).height() - (38 + 48 + 32 + 30);
-    $('.venus_slider-modal-body').css('height', carouselSliderBodyHeight + 'px');
+    let venusSliderBodyHeight = $(window).height() - (38 + 48 + 32 + 30);
+    $('.venus_slider-modal-body').css('height', venusSliderBodyHeight + 'px');
 
     // Append new row
     body.on('click', '.add_row', function () {
