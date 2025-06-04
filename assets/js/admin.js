@@ -1,4 +1,4 @@
-(function ($)  {
+(function ($) {
     "use strict";
 
     let frame,
@@ -6,7 +6,7 @@
         images = _this.data('ids'),
         selection = loadImages(images);
 
-    _this.on('click', function(e) {
+    _this.on('click', function (e) {
         e.preventDefault();
         let options = {
             title: _this.data('create'),
@@ -15,7 +15,7 @@
             selection: selection
         };
 
-        if ( frame || selection ) {
+        if (frame || selection) {
             options['title'] = _this.data('edit');
         }
 
@@ -27,13 +27,13 @@
         frame.menu.get('view').get('gallery-edit').el.innerHTML = _this.data('edit');
         frame.content.get('view').sidebar.unset('gallery'); // Hide Gallery Settings in sidebar
 
-        // When editing gallery
+        // when editing a gallery
         overrideGalleryInsert();
-        frame.on('toolbar:render:gallery-edit', function() {
+        frame.on('toolbar:render:gallery-edit', function () {
             overrideGalleryInsert();
         });
 
-        frame.on('content:render:browse', function(browser) {
+        frame.on('content:render:browse', function (browser) {
             if (!browser) return;
             // Hide Gallery Settings in sidebar
             browser.sidebar.on('ready', function () {
@@ -65,12 +65,12 @@
                 insert: {
                     style: 'primary',
                     text: _this.data('save'),
-                    click: function() {
+                    click: function () {
                         let models = frame.state().get('library'),
-                        ids = '';
+                            ids = '';
 
                         models.each(function (attachment) {
-                            ids += attachment.id + ',';
+                            ids += attachment.id + ','
                         });
 
                         this.el.innerHTML = _this.data('progress');
@@ -97,7 +97,7 @@
             });
         }
 
-    });    
+    });
 
     function loadImages(images) {
         if (images) {
@@ -117,22 +117,20 @@
             selection.gallery = attachments.gallery;
 
             selection.more().done(function () {
-               // Break ties with the query.
-               selection.props.set({query: false});
-               selection.unmirror();
-               selection.props.unset('orderby');
+                // Break ties with the query.
+                selection.props.set({query: false});
+                selection.unmirror();
+                selection.props.unset('orderby');
             });
 
             return selection;
         }
-
         return false;
     }
 
 })(jQuery);
-
 /**
- * Venus Slider Gallery from URL
+ * Carousel Slider Gallery from URL
  */
 (function ($) {
     'use strict';
@@ -172,7 +170,7 @@
 
 })(jQuery);
 (function ($) {
-    'use strict';
+    "use strict";
 
     let slide_type = $('#_venus_slider_slide_type'),
         section_images_settings = $('#section_images_settings'),
@@ -195,41 +193,36 @@
         _product_categories = $('#field-_product_categories'),
         _product_tags = $('#field-_product_tags'),
         _product_in = $('#field-_product_in'),
-        _product_per_page = $('#field-_products_per_page');
-    
-    // Slide Type
-    slide_type.on('change', function() {
-        section_images_settings.hide('fast');  
-        section_url_images_settings.hide('fast');  
-        section_images_general_settings.hide('fast');  
-        section_post_query.hide('fast');  
-        section_images_settings.hide('fast');  
-        section_video_settings.hide('fast');  
-        section_product_query.hide('fast');  
+        _products_per_page = $('#field-_products_per_page');
 
-        if (this.value === 'images-carousel') {
+    // Slide Type
+    slide_type.on('change', function () {
+        section_images_settings.hide('fast');
+        section_url_images_settings.hide('fast');
+        section_images_general_settings.hide('fast');
+        section_post_query.hide('fast');
+        section_video_settings.hide('fast');
+        section_product_query.hide('fast');
+
+        if (this.value === 'image-carousel') {
             section_images_settings.slideDown();
             section_images_general_settings.slideDown();
         }
-
-        if (this.value === 'images-carousel-url') {
+        if (this.value === 'image-carousel-url') {
             section_url_images_settings.slideDown();
             section_images_general_settings.slideDown();
         }
-
         if (this.value === 'post-carousel') {
             section_post_query.slideDown();
         }
-
         if (this.value === 'video-carousel') {
             section_video_settings.slideDown();
         }
-
         if (this.value === 'product-carousel') {
             section_product_query.slideDown();
         }
-    });   
-    
+    });
+
     // Slide Type -- Post Carousel
     if (slide_type.val() === 'post-carousel') {
         let _postQueryType = _post_query_type.val();
@@ -237,15 +230,12 @@
             _post_date_after.show();
             _post_date_before.show();
         }
-        
         if (_postQueryType === 'post_categories') {
             _post_categories.show();
         }
-       
         if (_postQueryType === 'post_tags') {
             _post_tags.show();
         }
-        
         if (_postQueryType === 'specific_posts') {
             _post_in.show();
             _posts_per_page.hide();
@@ -265,15 +255,12 @@
             _post_date_after.slideDown();
             _post_date_before.slideDown();
         }
-        
         if (this.value === 'post_categories') {
             _post_categories.slideDown();
         }
-        
         if (this.value === 'post_tags') {
             _post_tags.slideDown();
         }
-        
         if (this.value === 'specific_posts') {
             _post_in.slideDown();
             _posts_per_page.hide('fast');
@@ -283,21 +270,18 @@
     // Slide Type -- Product Carousel
     if (slide_type.val() === 'product-carousel') {
         let _productQueryType = _product_query_type.val();
-        if (_productQueryType === 'query_product') {
+        if (_productQueryType === 'query_porduct') {
             _product_query.show();
         }
-        
         if (_productQueryType === 'product_categories') {
             _product_categories.show();
-        } 
-
+        }
         if (_productQueryType === 'product_tags') {
             _product_tags.show();
-        } 
-
+        }
         if (_productQueryType === 'specific_products') {
             _product_in.show();
-        } 
+        }
     }
 
     _product_query_type.on('change', function () {
@@ -306,7 +290,7 @@
         _product_categories.hide('fast');
         _product_tags.hide('fast');
         _product_in.hide('fast');
-        _product_per_page.hide('fast');
+        _products_per_page.show('fast');
 
         if (this.value === 'query_porduct') {
             _product_query.slideDown();
@@ -321,14 +305,13 @@
             _product_in.slideDown();
             _products_per_page.hide('fast');
         }
-    });     
+    });
 })(jQuery);
-
 (function ($) {
-    'use strict';
+    "use strict";
 
     // Select2
-    $("select.select2").each(function() {
+    $("select.select2").each(function () {
         $(this).select2();
     });
 
@@ -345,18 +328,18 @@
             $(this).accordion({
                 header: '.shapla-toggle-title',
                 collapsible: true,
-                heightStyle: 'content'
+                heightStyle: "content"
             });
         }
     });
 
-    // Initializing jQuery UI Datepicker
-    $('.datapicker').each(function () {
+    //Initializing jQuery UI Datepicker
+    $('.datepicker').each(function () {
         $(this).datepicker({
             dateFormat: 'MM dd, yy',
             changeMonth: true,
             changeYear: true,
-            onClose: function(selectedDate) {
+            onClose: function (selectedDate) {
                 $(this).datepicker('option', 'minDate', selectedDate);
             }
         });
@@ -366,5 +349,4 @@
     $('.colorpicker').each(function () {
         $(this).wpColorPicker();
     });
-
 })(jQuery);

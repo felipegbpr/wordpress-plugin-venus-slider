@@ -1,9 +1,8 @@
-
 (function ($) {
-    'use strict';
+    "use strict";
 
     // Select2
-    $("select.select2").each(function() {
+    $("select.select2").each(function () {
         $(this).select2();
     });
 
@@ -20,18 +19,18 @@
             $(this).accordion({
                 header: '.shapla-toggle-title',
                 collapsible: true,
-                heightStyle: 'content'
+                heightStyle: "content"
             });
         }
     });
 
-    // Initializing jQuery UI Datepicker
-    $('.datapicker').each(function () {
+    //Initializing jQuery UI Datepicker
+    $('.datepicker').each(function () {
         $(this).datepicker({
             dateFormat: 'MM dd, yy',
             changeMonth: true,
             changeYear: true,
-            onClose: function(selectedDate) {
+            onClose: function (selectedDate) {
                 $(this).datepicker('option', 'minDate', selectedDate);
             }
         });
@@ -41,5 +40,4 @@
     $('.colorpicker').each(function () {
         $(this).wpColorPicker();
     });
-
 })(jQuery);

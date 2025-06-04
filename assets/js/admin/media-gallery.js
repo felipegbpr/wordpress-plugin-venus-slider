@@ -1,4 +1,4 @@
-(function ($)  {
+(function ($) {
     "use strict";
 
     let frame,
@@ -6,7 +6,7 @@
         images = _this.data('ids'),
         selection = loadImages(images);
 
-    _this.on('click', function(e) {
+    _this.on('click', function (e) {
         e.preventDefault();
         let options = {
             title: _this.data('create'),
@@ -15,7 +15,7 @@
             selection: selection
         };
 
-        if ( frame || selection ) {
+        if (frame || selection) {
             options['title'] = _this.data('edit');
         }
 
@@ -27,13 +27,13 @@
         frame.menu.get('view').get('gallery-edit').el.innerHTML = _this.data('edit');
         frame.content.get('view').sidebar.unset('gallery'); // Hide Gallery Settings in sidebar
 
-        // When editing gallery
+        // when editing a gallery
         overrideGalleryInsert();
-        frame.on('toolbar:render:gallery-edit', function() {
+        frame.on('toolbar:render:gallery-edit', function () {
             overrideGalleryInsert();
         });
 
-        frame.on('content:render:browse', function(browser) {
+        frame.on('content:render:browse', function (browser) {
             if (!browser) return;
             // Hide Gallery Settings in sidebar
             browser.sidebar.on('ready', function () {
@@ -65,12 +65,12 @@
                 insert: {
                     style: 'primary',
                     text: _this.data('save'),
-                    click: function() {
+                    click: function () {
                         let models = frame.state().get('library'),
-                        ids = '';
+                            ids = '';
 
                         models.each(function (attachment) {
-                            ids += attachment.id + ',';
+                            ids += attachment.id + ','
                         });
 
                         this.el.innerHTML = _this.data('progress');
@@ -97,7 +97,7 @@
             });
         }
 
-    });    
+    });
 
     function loadImages(images) {
         if (images) {
@@ -117,15 +117,14 @@
             selection.gallery = attachments.gallery;
 
             selection.more().done(function () {
-               // Break ties with the query.
-               selection.props.set({query: false});
-               selection.unmirror();
-               selection.props.unset('orderby');
+                // Break ties with the query.
+                selection.props.set({query: false});
+                selection.unmirror();
+                selection.props.unset('orderby');
             });
 
             return selection;
         }
-
         return false;
     }
 

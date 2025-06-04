@@ -1,5 +1,5 @@
 /**
- * Venus Slider Gallery from URL
+ * Carousel Slider Gallery from URL
  */
 (function ($) {
     'use strict';
