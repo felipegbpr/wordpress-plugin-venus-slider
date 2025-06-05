@@ -31,7 +31,7 @@ if ( ! class_exists( 'VenusSliderShortcode' ) ):
             $this->plugin_path = VENUS_SLIDER_PATH;
             $this->plugin_url  = VENUS_SLIDER_URL;
 
-            add_shortcode( 'venus_slide', array( $this, 'carousel_slide' ) );
+            add_shortcode( 'venus_slide', array( $this, 'venus_slide' ) );
         }
 
         /**
@@ -42,7 +42,7 @@ if ( ! class_exists( 'VenusSliderShortcode' ) ):
 		 *
 		 * @return string  The shortcode output
 		 */
-        public function carousel_slide( $attributes, $content = null ) {
+        public function venus_slide( $attributes, $content = null ) {
             extract(
                     shortcode_atts(
                             array( 'id' => '' ),
