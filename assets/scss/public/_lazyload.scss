@@ -1,0 +1,10 @@
+// Owl Carousel - Lazy Load Plugin
+.venus-slider {
+    .owl-item {
+        img.owl-lazy {
+            background: url($ajax-loader-url) no-repeat center;
+            min-width: 32px;
+            min-height: 32px;
+        }
+    }
+}
