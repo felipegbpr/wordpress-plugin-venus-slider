@@ -193,11 +193,11 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
 				$post->ID,
 				$value,
 				$btn_text,
-				esc_html__( 'Create Gallery', 'venu-slider' ),
-				esc_html__( 'Edit Gallery', 'venu-slider' ),
-				esc_html__( 'Save Gallery', 'venu-slider' ),
-				esc_html__( 'Saving...', 'venu-slider' ),
-				esc_html__( 'Insert', 'venu-slider' )
+				esc_html__( 'Create Gallery', 'venus-slider' ),
+				esc_html__( 'Edit Gallery', 'venus-slider' ),
+				esc_html__( 'Save Gallery', 'venus-slider' ),
+				esc_html__( 'Saving...', 'venus-slider' ),
+				esc_html__( 'Insert', 'venus-slider' )
 			);
 			$html .= sprintf( '<ul class="venus_slider_gallery_list">%s</ul>', $output );
 			$html .= '</div>';
@@ -211,7 +211,7 @@ if ( ! class_exists( 'VenusSliderForm' ) ) :
 			}
 			list( $name, $value ) = $this->field_common( $args );
 
-			$btn_text = $value ? __( 'Edit URLs', 'venu-slider' ) : __( 'Add URLs', 'venu-slider' );
+			$btn_text = $value ? __( 'Edit URLs', 'venus-slider' ) : __( 'Add URLs', 'venus-slider' );
 
 			$html = $this->field_before( $args );
 			$html .= sprintf( '<a id="_images_urls_btn" class="button" href="#">%s</a>', $btn_text );

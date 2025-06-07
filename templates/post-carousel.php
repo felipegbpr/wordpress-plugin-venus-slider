@@ -94,66 +94,66 @@ $_post_height      = get_post_meta( $id, '_post_height', true );
         background-color: <?php echo $_nav_active_color; ?>
     }
 
-    #id-<?php echo $id; ?> .venu-slider-nav-icon {
+    #id-<?php echo $id; ?> .venus-slider-nav-icon {
         fill: <?php echo $_nav_color; ?>;
     }
 
-    #id-<?php echo $id; ?> .venu-slider-nav-icon:hover {
+    #id-<?php echo $id; ?> .venus-slider-nav-icon:hover {
         fill: <?php echo $_nav_active_color; ?>;
     }
 
-    #id-<?php echo $id; ?> .venu-slider__post {
+    #id-<?php echo $id; ?> .venus-slider__post {
         height: <?php echo $_post_height; ?>px;
     }
 </style>
 <div <?php echo join( " ", $this->carousel_options( $id ) ); ?>>
 	<?php
 	foreach ( $carousels as $query ):
-		echo '<div class="venu-slider__post">';
-		echo '<div class="venu-slider__post-content">';
-		echo '<div class="venu-slider__post-header">';
+		echo '<div class="venus-slider__post">';
+		echo '<div class="venus-slider__post-content">';
+		echo '<div class="venus-slider__post-header">';
 		// Post Thumbnail
 		if ( $query->thumbnail_id ) {
 			$image_src = wp_get_attachment_image_src( $query->thumbnail_id, $_image_size );
 
 			if ( $_lazy_load_image == 'on' ) {
 
-				echo sprintf( '<a href="%s" class="venu-slider__post-image owl-lazy" data-src="%s"></a>', $query->permalink, $image_src[0] );
+				echo sprintf( '<a href="%s" class="venus-slider__post-image owl-lazy" data-src="%s"></a>', $query->permalink, $image_src[0] );
 			} else {
 
-				echo sprintf( '<a href="%s" class="venu-slider__post-image" style="background-image: url(%s)"></a>', $query->permalink, $image_src[0] );
+				echo sprintf( '<a href="%s" class="venus-slider__post-image" style="background-image: url(%s)"></a>', $query->permalink, $image_src[0] );
 			}
 
 		} else {
 
-			echo sprintf( '<a href="%s" class="venu-slider__post-image"></a>', $query->permalink );
+			echo sprintf( '<a href="%s" class="venus-slider__post-image"></a>', $query->permalink );
 		}
 
 		// Post Title
-		echo sprintf( '<a class="venu-slider__post-title" href="%s"><h1>%s</h1></a>', $query->permalink, $query->title );
+		echo sprintf( '<a class="venus-slider__post-title" href="%s"><h1>%s</h1></a>', $query->permalink, $query->title );
 		echo '</div>'; // End Post Header
-		echo '<div class="venu-slider__post-excerpt">' . $query->excerpt . '</div>';
-		echo '<footer class="venu-slider__post-meta">';
-		echo '<div class="venu-slider__post-excerpt-overlay"></div>';
-		echo '<div class="venu-slider__post-publication-meta">';
-		echo '<div class="venu-slider__post-details-info">';
+		echo '<div class="venus-slider__post-excerpt">' . $query->excerpt . '</div>';
+		echo '<footer class="venus-slider__post-meta">';
+		echo '<div class="venus-slider__post-excerpt-overlay"></div>';
+		echo '<div class="venus-slider__post-publication-meta">';
+		echo '<div class="venus-slider__post-details-info">';
 
 		// Post author
-		echo sprintf( '<div class="venu-slider__post-author"><a class="venu-slider__post-author-link" href="%s">%s</a></div>',
+		echo sprintf( '<div class="venus-slider__post-author"><a class="venus-slider__post-author-link" href="%s">%s</a></div>',
 			$query->author->posts_url,
 			$query->author->display_name
 		);
 		// Post date
 		if ( $query->created !== $query->modified ) {
 
-			echo sprintf( '<time class="venu-slider__post-publication-date" datetime="%s">%s</time>',
+			echo sprintf( '<time class="venus-slider__post-publication-date" datetime="%s">%s</time>',
 				date_i18n( 'c', $query->modified ),
 				date_i18n( get_option( 'date_format' ), $query->modified )
 			);
 
 		} else {
 
-			echo sprintf( '<time class="venu-slider__post-publication-date" datetime="%s">%s</time>',
+			echo sprintf( '<time class="venus-slider__post-publication-date" datetime="%s">%s</time>',
 				date_i18n( 'c', $query->created ),
 				date_i18n( get_option( 'date_format' ), $query->created )
 			);
@@ -162,9 +162,9 @@ $_post_height      = get_post_meta( $id, '_post_height', true );
 		echo '</div>';
 
 		// Post catagory
-		echo '<div class="venu-slider__post-category">';
+		echo '<div class="venus-slider__post-category">';
 		if ( isset( $query->category->link ) ) {
-			echo sprintf( '<a class="venu-slider__post-category-link" href="%s">%s</a>',
+			echo sprintf( '<a class="venus-slider__post-category-link" href="%s">%s</a>',
 				$query->category->link,
 				$query->category->title
 			);

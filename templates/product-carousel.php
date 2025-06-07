@@ -147,20 +147,20 @@ $_product_btn_text_color = get_post_meta( $id, '_product_btn_text_color', true )
 		fill: <?php echo esc_attr( $_nav_active_color ); ?>;
 	}
 
-	#id-<?php echo $id; ?> .venu-slider__product h3,
-	#id-<?php echo $id; ?> .venu-slider__product .price {
+	#id-<?php echo $id; ?> .venus-slider__product h3,
+	#id-<?php echo $id; ?> .venus-slider__product .price {
 		color: <?php echo esc_attr( $_product_title_color ); ?>;
 	}
 
-	#id-<?php echo $id; ?> .venu-slider__product a.add_to_cart_button,
-	#id-<?php echo $id; ?> .venu-slider__product a.added_to_cart,
-	#id-<?php echo $id; ?> .venu-slider__product a.quick_view,
-	#id-<?php echo $id; ?> .venu-slider__product .onsale {
+	#id-<?php echo $id; ?> .venus-slider__product a.add_to_cart_button,
+	#id-<?php echo $id; ?> .venus-slider__product a.added_to_cart,
+	#id-<?php echo $id; ?> .venus-slider__product a.quick_view,
+	#id-<?php echo $id; ?> .venus-slider__product .onsale {
 		background-color: <?php echo esc_attr( $_product_btn_bg_colot ); ?>;
 		color: <?php echo esc_attr( $_product_btn_text_color ); ?>;
 	}
 
-	#id-<?php echo $id; ?> .venu-slider__product .star-rating {
+	#id-<?php echo $id; ?> .venus-slider__product .star-rating {
 		color: <?php echo esc_attr( $_product_btn_bg_color ); ?>;
 	}
 </style>
