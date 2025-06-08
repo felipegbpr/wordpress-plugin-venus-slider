@@ -6,12 +6,12 @@ if ( ! defined( 'WPINC' ) ) {
 
 $_nav_color        = get_post_meta( $id, '_nav_color', true );
 $_nav_active_color = get_post_meta( $id, '_nav_active_color', true );
-$_video_width      = $this->get_meta( $id, '_video_width', true );
-$_video_height     = $this->get_meta( $id, '_video_height', true );
+$_video_width      = $this->get_meta( $id, '_video_width' );
+$_video_height     = $this->get_meta( $id, '_video_height' );
 $_video_urls       = array_filter( explode( ',', $this->get_meta( $id, '_video_url' ) ) );
 
 if ( count( $_video_urls ) < 1 ) {
-    return;
+	return;
 }
 ?>
 <style>
@@ -33,9 +33,9 @@ if ( count( $_video_urls ) < 1 ) {
     }
 </style>
 <div <?php echo join( " ", $this->carousel_options( $id ) ); ?>>
-    <?php
-    foreach ( $_video_urls as $url ) {
-             echo $this->video_url( $url );
-    }
-    ?>
+	<?php
+	foreach ( $_video_urls as $url ) {
+		echo $this->video_url( $url );
+	}
+	?>
 </div>

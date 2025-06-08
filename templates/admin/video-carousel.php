@@ -12,7 +12,7 @@
 				'desc' => sprintf(
 					'%s<br><br>Example: %s',
 					esc_html__( 'Only support youtube and vimeo. Enter video URL from youtube or vimeo separating each by comma', 'venus-slider' ),
-					'Insert a video'
+					'https://www.youtube.com/watch?v=O4-EM32h7b4,https://www.youtube.com/watch?v=72IO4gzB8mU,https://vimeo.com/193773669,https://vimeo.com/193517656'
 				),
 			) );
 			$this->form->number( array(
