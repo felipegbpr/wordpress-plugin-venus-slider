@@ -149,5 +149,32 @@ $btn-background: #96588a;
     // Buttons
 	a.add_to_cart_button {
         
+        &.loading {
+            opacity: 0.25;
+            padding-right: 2.618em;
+
+            &:after {
+                font-family: "WooCommerce";
+                content: "\e01c";
+                vertical-align: top;
+                -webkit-font-smoothing: antialiased;
+                font-weight: normal;
+                position: absolute;
+                top: .618em;
+                right: 1em;
+                -webkit-animation: spin 2s linear infinite;
+                -moz-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+            }
+        }
+
+        &.added {
+            &:after {
+                font-family: "WooCommerce";
+                content: "\e017";
+                margin-left: .53em;
+                vertical-align: bottom;
+            }
+        }
     }
 }
