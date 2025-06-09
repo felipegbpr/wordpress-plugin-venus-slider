@@ -19,6 +19,7 @@ $args = array(
 	'posts_per_page'     => intval( get_post_meta( $id, '_products_per_page', true ) )
 );
 
+
 $order          = get_post_meta( $id, '_product_order', true );
 $orderby        = get_post_meta( $id, '_product_orderby', true );
 $posts_per_page = intval( get_post_meta( $id, '_products_per_page', true ) );
@@ -148,125 +149,105 @@ $_product_quick_view = get_post_meta( $id, '_product_quick_view', true );
 $_product_title_color    = get_post_meta( $id, '_product_title_color', true );
 $_product_btn_bg_color   = get_post_meta( $id, '_product_button_bg_color', true );
 $_product_btn_text_color = get_post_meta( $id, '_product_button_text_color', true );
-
-$_image_size        = get_post_meta( $id, '_image_size', true );
-$_nav_color         = get_post_meta( $id, '_nav_color', true );
-$_nav_active_color  = get_post_meta( $id, '_nav_active_color', true );
-$_lazy_load_image   = get_post_meta( $id, '_lazy_load_image', true );
-
-$_product_title 	  = get_post_meta( $id, '_product_title', true );
-$_product_rating 	  = get_post_meta( $id, '_product_rating', true );
-$_product_price 	  = get_post_meta( $id, '_product_price', true );
-$_product_cart_btn 	  = get_post_meta( $id, '_product_cart_btn', true );
-$_product_onsale 	  = get_post_meta( $id, '_product_onsale', true );
-$_product_wishlist	  = get_post_meta( $id, '_product_wishlist', true );
-$_product_quick_view  = get_post_meta( $id, '_product_quick_view', true );
-
-$_product_title_color    = get_post_meta( $id, '_product_title_color', true );
-$_product_btn_bg_color   = get_post_meta( $id, '_product_btn_bg_color', true );
-$_product_btn_text_color = get_post_meta( $id, '_product_btn_text_color', true );
 ?>
 <style>
-	#id-<?php echo $id; ?> .owl-dots .owl-dot span {
-		background-color: <?php echo esc_attr( $_nav_color ); ?>
-	}
+    #id-<?php echo $id; ?> .owl-dots .owl-dot span {
+        background-color: <?php echo esc_attr($_nav_color); ?>
+    }
 
-	#id-<?php echo $id; ?> .owl-dots .owl-dot.active span,
-	#id-<?php echo $id; ?> .owl-dots .owl-dot:hover span {
-		background-color: <?php echo esc_attr( $_nav_active_color ); ?>
-	}
+    #id-<?php echo $id; ?> .owl-dots .owl-dot.active span,
+    #id-<?php echo $id; ?> .owl-dots .owl-dot:hover span {
+        background-color: <?php echo esc_attr($_nav_active_color); ?>
+    }
 
-	#id-<?php echo $id; ?> .venus-slider-nav-icon {
-		fill: <?php echo esc_attr( $_nav_color ); ?>;
-	}
+    #id-<?php echo $id; ?> .venus-slider-nav-icon {
+        fill: <?php echo esc_attr($_nav_color); ?>;
+    }
 
-	#id-<?php echo $id; ?> .venus-slider-nav-icon:hover {
-		fill: <?php echo esc_attr( $_nav_active_color ); ?>;
-	}
+    #id-<?php echo $id; ?> .venus-slider-nav-icon:hover {
+        fill: <?php echo esc_attr($_nav_active_color); ?>;
+    }
 
-	#id-<?php echo $id; ?> .venus-slider__product h3,
-	#id-<?php echo $id; ?> .venus-slider__product .price {
-		color: <?php echo esc_attr( $_product_title_color ); ?>;
-	}
+    #id-<?php echo $id; ?> .venus-slider__product h3,
+    #id-<?php echo $id; ?> .venus-slider__product .price {
+        color: <?php echo esc_attr($_product_title_color); ?>;
+    }
 
-	#id-<?php echo $id; ?> .venus-slider__product a.add_to_cart_button,
-	#id-<?php echo $id; ?> .venus-slider__product a.added_to_cart,
-	#id-<?php echo $id; ?> .venus-slider__product a.quick_view,
-	#id-<?php echo $id; ?> .venus-slider__product .onsale {
-		background-color: <?php echo esc_attr( $_product_btn_bg_colot ); ?>;
-		color: <?php echo esc_attr( $_product_btn_text_color ); ?>;
-	}
+    #id-<?php echo $id; ?> .venus-slider__product a.add_to_cart_button,
+    #id-<?php echo $id; ?> .venus-slider__product a.added_to_cart,
+    #id-<?php echo $id; ?> .venus-slider__product a.quick_view,
+    #id-<?php echo $id; ?> .venus-slider__product .onsale {
+        background-color: <?php echo esc_attr($_product_btn_bg_color); ?>;
+        color: <?php echo esc_attr($_product_btn_text_color); ?>;
+    }
 
-	#id-<?php echo $id; ?> .venus-slider__product .star-rating {
-		color: <?php echo esc_attr( $_product_btn_bg_color ); ?>;
-	}
+    #id-<?php echo $id; ?> .venus-slider__product .star-rating {
+        color: <?php echo esc_attr($_product_btn_bg_color); ?>;
+    }
 </style>
 <div <?php echo join( " ", $this->carousel_options( $id ) ); ?>>
 	<?php foreach ( $posts as $post ): setup_postdata( $post ); ?>
-			<?php 
-			$product = wc_get_product( $post->ID );
-			do_action( 'venus_slider_product_loop' );
-			?>
-	<div class="product venus-slider__product">
-		<?php 
-		echo sprintf( '<a class="woocommerce-LoopProduct-link"> href="%s"', get_the_permalink( $post->ID ) );
-		// Post Thumbnail
-		if ( has_post_thumbnail( $post->ID ) ) {
-			if ( $_lazy_load_image == 'on' ) {
-				$image_src = get_the_post_thumbnail_url( $post->ID, $_image_size );
-				echo sprintf( '<img class="owl-lazy" data-src="%1$s" />', $image_src );
-			} else {
-				$image_src = get_the_post_thumbnail_url( $post->ID, $_image_size );
-				echo sprintf( '<img src="%1$s" />', $image_src );
+		<?php
+		$product = wc_get_product( $post->ID );
+		do_action( 'venus_slider_product_loop' );
+		?>
+        <div class="product venus-slider__product">
+			<?php
+			echo sprintf( '<a class="woocommerce-LoopProduct-link" href="%s">', get_the_permalink( $post->ID ) );
+			// Post Thumbnail
+			if ( has_post_thumbnail( $post->ID ) ) {
+				if ( $_lazy_load_image == 'on' ) {
+					$image_src = get_the_post_thumbnail_url( $post->ID, $_image_size );
+					echo sprintf( '<img class="owl-lazy" data-src="%1$s" />', $image_src );
+				} else {
+					$image_src = get_the_post_thumbnail_url( $post->ID, $_image_size );
+					echo sprintf( '<img src="%1$s" />', $image_src );
+				}
 			}
-		}
-		echo "</a>";
+			echo "</a>";
 
-		// Show title
-		if ( $_product_title == 'on' ) {
-			echo sprintf( '<a href="%1$s"><h3>%2$s</h3></a>', get_the_permalink( $post->ID ), get_the_title( $post->ID ) );
-		}
+			// Show title
+			if ( $_product_title == 'on' ) {
+				echo sprintf( '<a href="%1$s"><h3>%2$s</h3></a>', get_the_permalink( $post->ID ), get_the_title( $post->ID ) );
+			}
 
-		// Show Rating
-		if ( $_product_rating == 'on' ) {
-				echo wc_get_rating_html( $product->get_average_rating() );
-		}
-
-		// Sale Product batch
-		if ( $product->is_on_sale() && $_product_onsale == 'on' ) {
+			// Show Rating
+			if ( $_product_rating == 'on' ) {
+					echo wc_get_rating_html( $product->get_average_rating() );
+			}
+			
+			// Sale Product batch
+			if ( $product->is_on_sale() && $_product_onsale == 'on' ) {
 				echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . __( 'Sale!', 'venus-slider' ) . '</span>', $product );
-		}
-
-		// Show Price
-		if ( $_product_price == 'on' ) {
-				echo  '<span class="price">' . $product->get_price_html() . '</span>';
-		}
-
-		// Show button 
-		if ( $_product_cart_btn == 'on' ) {
+			}
+			// Show Price
+			if ( $_product_price == 'on' ) {
+				echo '<span class="price">' . $product->get_price_html() . '</span>';
+			}
+			// Show button
+			if ( $_product_cart_btn == 'on' ) {
 				echo '<div style="clear: both;"></div>';
 				if ( function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 					woocommerce_template_loop_add_to_cart();
 				}
-		}
+			}
 
-
-		if ( $_product_quick_view == 'on' ) {
+			if ( $_product_quick_view == 'on' ) {
 				wp_enqueue_script( 'magnific-popup' );
 				$ajax_url = wp_nonce_url( add_query_arg( array( 'ajax'       => 'true',
-																'action'     => 'venus_slider_quick_view',
-																'product_id' => $post->ID,
-																'slide_id'   => $id
+				                                                'action'     => 'venus_slider_quick_view',
+				                                                'product_id' => $post->ID,
+				                                                'slide_id'   => $id
 				), admin_url( 'admin-ajax.php' ) ), 'venus_slider_quick_view' );
-				echo sprintf( '<a class="magnific-popup button quick_view" href="%1$s" data-product-id="%2$s">%3$s</a>', $ajax_url, $post->ID, __( 'Quick View', 'venus-slider' ) );	
-		}
+				echo sprintf( '<a class="magnific-popup button quick_view" href="%1$s" data-product-id="%2$s">%3$s</a>', $ajax_url, $post->ID, __( 'Quick View', 'venus-slider' ) );
+			}
 
-		// WooCommerce Wishlist
-		if ( class_exists( 'YITH_WCWL' ) && $_product_wishlist == 'on' )  {
+			// WooCommerce Wishlist
+			if ( class_exists( 'YITH_WCWL' ) && $_product_wishlist == 'on' ) {
 				echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
-		}
-		?>
-	</div>	
-	<?php endforeach;	
+			}
+			?>
+        </div>
+	<?php endforeach;
 	wp_reset_postdata(); ?>
 </div>
