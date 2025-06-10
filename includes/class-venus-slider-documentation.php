@@ -45,4 +45,4 @@ if ( ! class_exists( 'VenusSliderDocumentation' ) ) {
 
 }
 
-
+VenusSliderDocumentation::init();
